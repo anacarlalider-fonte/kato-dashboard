@@ -212,7 +212,7 @@ nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const SCRIPT_URL="SUA_URL_AQUI";
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxvwRzqQ-mSYxLRlbmGrMgZzWwu9wXEWhGX4GfBehY-dJWZyrHXNZAg7JESOl7KQm4/exec";
 const MESES=["","Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const CH={};let _funil=null;
 const fm={
@@ -314,7 +314,7 @@ async function loadData(showLoader=false){
   document.getElementById("periodo-lbl").textContent=MESES[mes]+" de "+ano+" — Time Kato";
   if(showLoader)document.getElementById("loading").classList.remove("hidden");
   let data;
-  if(!SCRIPT_URL||SCRIPT_URL==="SUA_URL_AQUI"){await new Promise(r=>setTimeout(r,500));data=mock(mes,ano);}
+  if(!SCRIPT_URL||SCRIPT_URL==="https://script.google.com/macros/s/AKfycbxvwRzqQ-mSYxLRlbmGrMgZzWwu9wXEWhGX4GfBehY-dJWZyrHXNZAg7JESOl7KQm4/exec"){await new Promise(r=>setTimeout(r,500));data=mock(mes,ano);}
   else{try{const r=await fetch(SCRIPT_URL+"?mes="+mes+"&ano="+ano);data=await r.json();}catch(e){data=mock(mes,ano);}}
   render(data);
   spark("sp1",[28,35,30,42,38,45,52,data.time.leads.ativos],"#C8766E");
