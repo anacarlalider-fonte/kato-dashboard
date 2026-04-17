@@ -324,7 +324,15 @@ async function loadData(showLoader=false){
   document.getElementById("last-upd").textContent="Atualizado "+now.getHours().toString().padStart(2,"0")+":"+now.getMinutes().toString().padStart(2,"0");
   document.getElementById("loading").classList.add("hidden");
 }
-(function(){const now=new Date();document.getElementById("sel-mes").value=now.getMonth()+1;document.getElementById("sel-ano").value=now.getFullYear();loadData(true);setInterval(()=>loadData(false),5*60*1000);})();
+(function(){
+  const now = new Date();
+  document.getElementById("sel-mes").value = now.getMonth() + 1;
+  document.getElementById("sel-ano").value = now.getFullYear();
+
+  loadData(true);
+
+  setInterval(() => loadData(false), 5 * 60 * 1000);
+})();
 </script>
 </body>
 </html>
